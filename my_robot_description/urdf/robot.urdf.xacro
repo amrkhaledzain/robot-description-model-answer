@@ -36,8 +36,8 @@
   <material name="red">
     <color rgba="1 0 0 1"/>
   </material>
-<!-- WHEEL MACRO WITH FDIR -->
-  <xacro:macro name="wheel" params="name x y z fdir">
+<!-- WHEEL MACRO -->
+  <xacro:macro name="wheel" params="name x y z ">
     <link name="${name}_link">
       <visual>
         <origin xyz="0 0 0" rpy="1.5708 0 0"/>
@@ -61,13 +61,6 @@
       </inertial> 
     </link>
 
-    <gazebo reference="${name}_link">
-      <mu1>1.0</mu1>
-      <mu2>0.0</mu2>
-      <fdir1>${fdir}</fdir1>
-      <kp>1e6</kp>
-      <kd>100.0</kd>
-    </gazebo>
 
     <joint name="${name}_joint" type="continuous">
       <parent link="base_link"/>
@@ -171,9 +164,9 @@
   </gazebo>
 
 <!-- X-Pattern Friction Directions -->
-  <xacro:wheel name="front_left_wheel"  x="0.2"  y="0.2"  z="-0.1" fdir="1 -1 0"/>
-  <xacro:wheel name="front_right_wheel" x="0.2"  y="-0.2" z="-0.1" fdir="1 1 0"/>
-  <xacro:wheel name="back_left_wheel"   x="-0.2" y="0.2"  z="-0.1" fdir="1 1 0"/>
-  <xacro:wheel name="back_right_wheel"  x="-0.2" y="-0.2" z="-0.1" fdir="1 -1 0"/>
+  <xacro:wheel name="front_left_wheel"  x="0.2"  y="0.2"  z="-0.1"/>
+  <xacro:wheel name="front_right_wheel" x="0.2"  y="-0.2" z="-0.1"/>
+  <xacro:wheel name="back_left_wheel"   x="-0.2" y="0.2"  z="-0.1"/>
+  <xacro:wheel name="back_right_wheel"  x="-0.2" y="-0.2" z="-0.1"/>
 
 </robot>
